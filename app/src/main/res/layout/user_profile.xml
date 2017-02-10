@@ -1,69 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp">
 
-    <Button
-        android:id="@+id/medicines_button"
+    <LinearLayout
+        android:layout_centerInParent="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Medicines"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        android:textSize="23sp"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
-        android:background="@drawable/round_rect_shape_button"/>
-    <Button
-        android:id="@+id/hospital_visits_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Hospital Visits"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        android:textSize="23sp"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
-        android:background="@drawable/round_rect_shape_button"/>
-    <Button
-        android:id="@+id/schedule_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Daily Schedule"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        android:textSize="23sp"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
-        android:background="@drawable/round_rect_shape_button"/>
-    <Button
-        android:id="@+id/allergies_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Allergies"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        android:textSize="23sp"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
-        android:background="@drawable/round_rect_shape_button"/>
-    <Button
-        android:id="@+id/suggestions_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Suggestions From Doctor"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        android:textSize="23sp"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
-        android:background="@drawable/round_rect_shape_button"/>
+        android:orientation="vertical">
 
-</LinearLayout>
+        <Button
+            android:id="@+id/medicines_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Medicines"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:textSize="23sp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:background="@drawable/round_rect_shape_button"/>
+        <Button
+            android:id="@+id/hospital_visits_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hospital Visits"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:textSize="23sp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:background="@drawable/round_rect_shape_button"/>
+        <Button
+            android:id="@+id/schedule_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Daily Schedule"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:textSize="23sp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:background="@drawable/round_rect_shape_button"/>
+        <Button
+            android:id="@+id/allergies_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Allergies"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:textSize="23sp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:background="@drawable/round_rect_shape_button"/>
+        <Button
+            android:id="@+id/suggestions_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Suggestions From Doctor"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:textSize="23sp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:background="@drawable/round_rect_shape_button"/>
+
+    </LinearLayout>
+</RelativeLayout>

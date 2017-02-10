@@ -2,9 +2,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#eceff7">
 
     <LinearLayout
+        android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -18,8 +20,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:gravity="center"
-                android:hint="AADHAR NUMBER"/>
+                android:hint="Aadhar Number" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -29,8 +30,7 @@
                 android:layout_margin="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="PASSWORD"
-                android:gravity="center"/>
+                android:hint="Password" />
         </android.support.design.widget.TextInputLayout>
 
         <Button
@@ -41,7 +41,6 @@
             android:textSize="23sp"
             android:text="Login"
             android:layout_gravity="center"
-            android:textStyle="bold"
             android:textColor="@android:color/white"
             android:background="@drawable/round_rect_shape_button"/>
         <Button
@@ -54,7 +53,6 @@
             android:layout_gravity="center"
             android:background="@drawable/round_rect_shape_button"
             android:textColor="@android:color/white"
-            android:textStyle="bold"
             />
 
     </LinearLayout>

@@ -13,7 +13,7 @@ public class SharedPrefUtil {
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
     private Context context;
-    private final String TABLE_ID = "table_id";
+    private final String ADHAAR_ID = "adhaar_id";
     private final String FILE_NAME = "shared_pref";
     private final String ORDERS_LIST = "orders_list";
 
@@ -33,15 +33,15 @@ public class SharedPrefUtil {
 
     }
 
-    public void setTableID(int tableID){
-        editor.putInt(TABLE_ID,tableID).commit();
+    public void setAdhaarID(String AdhaarID){
+        editor.putString(ADHAAR_ID,AdhaarID).commit();
     }
 
-    public int getTableId(){
-        if (sharedPreferences.contains(TABLE_ID)){
-            return sharedPreferences.getInt(TABLE_ID,0);
+    public String getTableId(){
+        if (sharedPreferences.contains(ADHAAR_ID)){
+            return sharedPreferences.getString(ADHAAR_ID,null);
         }
-        return -1;
+        return null;
     }
 
 

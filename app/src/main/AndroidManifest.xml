@@ -35,7 +35,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".MyAccountFormActivity" />
-        <activity android:name=".MyAccountActivity"></activity>
+        <activity android:name=".MyAccountActivity" />
+        <activity android:name=".UserProfileActivity" />
+        <activity android:name=".MedicinesActivity" />
+        <activity android:name=".HospitalVisitActivity" />
+        <activity android:name=".DailyScheduleActivity" />
+        <activity android:name=".DoctorSuggestionActivity"></activity>
     </application>
 
 </manifest>
