@@ -25,7 +25,7 @@ public class NfcLandingActivity extends AppCompatActivity {
     private Socket socket;
     private String TAG = "NfcLandingActivity";
     private int RC_NFC = 574;
-    private SharedPrefUtil sharedPrefUtil;
+    private SharedPrefUtil sharedPrefUtil;  // no need of shared pref....
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +60,7 @@ public class NfcLandingActivity extends AppCompatActivity {
         socket.on("new_order", new Emitter.Listener() {
             @Override
             public void call(Object... args) {
-                Log.d(TAG,"io worsk");
+                Log.d(TAG,"io works");
             }
         });
 
