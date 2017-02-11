@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/animation_list">
 
+
     <include
         layout="@layout/toolbar_material"
         android:id="@+id/toolbar"/>
