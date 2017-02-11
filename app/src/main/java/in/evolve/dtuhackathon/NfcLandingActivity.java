@@ -11,8 +11,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.github.nkzawa.emitter.Emitter;
 import com.github.nkzawa.socketio.client.IO;
 import com.github.nkzawa.socketio.client.Socket;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.net.URISyntaxException;
 
@@ -29,6 +33,71 @@ public class NfcLandingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_nfc_landing);
 
         sharedPrefUtil = new SharedPrefUtil(NfcLandingActivity.this);
+        initialiseHospitalSocket();
+        socket.on(Socket.EVENT_CONNECT, new Emitter.Listener() {
+            @Override
+            public void call(Object... args) {
+                Log.d(TAG,"Connected to Socket Server");
+                socket.emit("newp","started");
+            }
+        });
+
+        socket.on("your_call", new Emitter.Listener() {
+            @Override
+            public void call(Object... args) {
+                Log.d(TAG,"here is a call");
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        yourTurnAlert();
+                    }
+                });
+
+            }
+        });
+
+        socket.on("new_order", new Emitter.Listener() {
+            @Override
+            public void call(Object... args) {
+                Log.d(TAG,"io worsk");
+            }
+        });
+
+        socket.on("finally", new Emitter.Listener() {
+            @Override
+            public void call(Object... args) {
+                JSONObject jsonObject = (JSONObject) args[0];
+
+                try {
+                    final String to_print = jsonObject.getString("pres");
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            new AlertDialog.Builder(NfcLandingActivity.this)
+                                    .setTitle("Doctor Presciption...")
+                                    .setMessage(to_print)
+                                    .setCancelable(false)
+                                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            NfcLandingActivity.this.finish();
+                                        }
+                                    })
+                                    .setNegativeButton("EXIT", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            NfcLandingActivity.this.finish();
+                                        }
+                                    })
+                                    .create().show();
+                        }
+                    });
+                }catch (JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
     @Override
@@ -143,4 +212,32 @@ public class NfcLandingActivity extends AppCompatActivity {
                 .create().show();
     }
 
+    void yourTurnAlert(){
+
+        new AlertDialog.Builder(NfcLandingActivity.this)
+                .setMessage("Doctor is Calling You.....")
+                .setCancelable(false)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        NfcLandingActivity.this.finish();
+                    }
+                })
+                .setNegativeButton("EXIT", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        NfcLandingActivity.this.finish();
+                    }
+                })
+                .create().show();
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        Log.d(TAG,"here we destroyed");
+        socket.close();
+    }
 }
