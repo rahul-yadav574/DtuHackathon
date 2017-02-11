@@ -71,7 +71,6 @@ public class NfcLandingActivity extends AppCompatActivity {
         String data = NfcTagUtils.readTag(tag);
 
         Log.d(TAG,data+"and the daata is");
-        sharedPrefUtil.setTableID(Integer.parseInt(data.substring(11,12)));
 
         if(socket==null) {
             initialiseHospitalSocket();
@@ -106,6 +105,8 @@ public class NfcLandingActivity extends AppCompatActivity {
 
         if (nfcState == null){
             // nfcInfo.setText("NFC NOT AVAILABLE");
+            Intent intent=new Intent(NfcLandingActivity.this,MainActivity.class);
+            startActivity(intent);
         }
 
         else if (nfcState){
