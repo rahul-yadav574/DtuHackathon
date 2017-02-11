@@ -45,7 +45,6 @@ public class SharedPrefUtil {
     }
 
 
-
     public void clearData(){
         editor.clear().commit();
     }
