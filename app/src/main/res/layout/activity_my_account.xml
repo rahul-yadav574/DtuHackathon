@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="in.evolve.dtuhackathon.MyAccountActivity"
-    android:background="#eceff7">
+    android:background="@drawable/animation_list">
 
     <include android:id="@+id/toolbar"
         layout="@layout/toolbar_material"

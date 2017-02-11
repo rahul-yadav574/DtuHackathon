@@ -5,9 +5,10 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 
-public class MyAccountActivity extends AppCompatActivity implements View.OnClickListener{
+public class MyAccountActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
     private  SharedPrefUtil sharedPrefUtil;
@@ -15,6 +16,7 @@ public class MyAccountActivity extends AppCompatActivity implements View.OnClick
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_account);
+        overridePendingTransition(R.anim.activity_open_translate,R.anim.activity_close_scale);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -30,13 +32,17 @@ public class MyAccountActivity extends AppCompatActivity implements View.OnClick
     }
 
     @Override
-    public void onClick(View view) {
-        int id=view.getId();
-        switch (id)
-        {
-            case android.R.id.home:
-                sharedPrefUtil.clearData();
-                MyAccountActivity.this.finish();
-        }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId()==android.R.id.home)
+            MyAccountActivity.this.finish();
+        if(item.getItemId()==R.id.logout_button)
+            MyAccountActivity.this.finish();
+        return true;
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        overridePendingTransition(R.anim.activity_open_scale,R.anim.activity_close_translate);
     }
 }

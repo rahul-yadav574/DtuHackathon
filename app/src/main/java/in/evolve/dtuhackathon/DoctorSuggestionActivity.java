@@ -10,5 +10,12 @@ public class DoctorSuggestionActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.suggestions_activity);
+        overridePendingTransition(R.anim.activity_open_translate,R.anim.activity_close_scale);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        overridePendingTransition(R.anim.activity_open_scale,R.anim.activity_close_translate);
     }
 }

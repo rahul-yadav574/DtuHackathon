@@ -18,6 +18,7 @@ public class MyAccountFormActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_account_form);
+        overridePendingTransition(R.anim.activity_open_translate,R.anim.activity_close_scale);
         adhaarNumberEditText= (EditText) findViewById(R.id.my_account_form_adhaar_id);
         passwordEditText= (EditText) findViewById(R.id.my_account_form_password);
         confirmPasswordEditText= (EditText) findViewById(R.id.my_account_form_confirm_password);
@@ -40,5 +41,11 @@ public class MyAccountFormActivity extends AppCompatActivity {
         {
             UtilFunction.toastL(MyAccountFormActivity.this,"Please check Your Password and Try Again");
         }*/
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        overridePendingTransition(R.anim.activity_open_scale,R.anim.activity_close_translate);
     }
 }

@@ -38,4 +38,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent1);
         }
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        overridePendingTransition(R.anim.activity_open_scale,R.anim.activity_close_translate);
+    }
 }

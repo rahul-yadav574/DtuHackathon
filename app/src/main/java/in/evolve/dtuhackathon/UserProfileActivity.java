@@ -21,6 +21,7 @@ public class UserProfileActivity extends AppCompatActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_profile);
+        overridePendingTransition(R.anim.activity_open_translate,R.anim.activity_close_scale);
 
         hospitalVisitButton= (Button) findViewById(R.id.hospital_visits_button);
         scheduleButton= (Button) findViewById(R.id.schedule_button);
@@ -86,5 +87,11 @@ public class UserProfileActivity extends AppCompatActivity implements View.OnCli
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        overridePendingTransition(R.anim.activity_open_scale,R.anim.activity_close_translate);
     }
 }
