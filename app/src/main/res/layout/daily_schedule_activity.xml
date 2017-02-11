@@ -21,7 +21,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="TIME"
+            android:text="Time"
             android:textSize="17sp"
             android:textStyle="bold"
             android:textColor="@android:color/black"
