@@ -3,6 +3,10 @@ package in.evolve.dtuhackathon;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -12,6 +16,7 @@ public class UserProfileActivity extends AppCompatActivity implements View.OnCli
     private Button scheduleButton;
     private Button suggestionButton;
     private Button medicineButton;
+    private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +26,11 @@ public class UserProfileActivity extends AppCompatActivity implements View.OnCli
         scheduleButton= (Button) findViewById(R.id.schedule_button);
         suggestionButton= (Button) findViewById(R.id.suggestions_button);
         medicineButton= (Button) findViewById(R.id.medicines_button);
+        toolbar= (Toolbar) findViewById(R.id.toolbar);
+
+        setSupportActionBar(toolbar);
+        toolbar.setTitle("Your Profile");
+        toolbar.setNavigationIcon(R.drawable.abc_ic_ab_back_material);
 
         hospitalVisitButton.setOnClickListener(this);
         scheduleButton.setOnClickListener(this);
@@ -52,6 +62,29 @@ public class UserProfileActivity extends AppCompatActivity implements View.OnCli
                 Intent intent4=new Intent(UserProfileActivity.this,DoctorSuggestionActivity.class);
                 startActivity(intent4);
                 break;
+            case android.R.id.home:
+                 UserProfileActivity.this.finish();
         }
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_user_profile,menu);
+        MenuItem item=menu.getItem(0);
+        item.setVisible(true);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId())
+        {
+            case R.id.my_account:
+                Intent intent=new Intent(UserProfileActivity.this,MyAccountActivity.class);
+                startActivity(intent);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
